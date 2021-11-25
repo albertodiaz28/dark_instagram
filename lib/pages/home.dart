@@ -26,7 +26,12 @@ class HomePage extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 10),
         child: Column(
           children: [
-            _histories()
+            _Histories(),
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: _Publication()
+            ),
+            
           ],
         ),
         decoration: BoxDecoration(
@@ -39,6 +44,22 @@ class HomePage extends StatelessWidget {
   }
 }
 
+class _Publication extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 400,
+      margin: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Color(0xff252837),
+        borderRadius: BorderRadius.circular(20)
+      ),
+    );
+  }
+}
+
 class _NavigationBar extends StatefulWidget {
 
   @override
@@ -46,9 +67,6 @@ class _NavigationBar extends StatefulWidget {
 }
 
 class __NavigationBarState extends State<_NavigationBar> {
-
-  int _page = 0;
-  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -60,14 +78,14 @@ class __NavigationBarState extends State<_NavigationBar> {
         Icon(Icons.shopping_bag, size: 30, color: Colors.white),
         Icon(Icons.perm_identity, size: 30, color: Colors.white),
       ],
-      color: Color(0xff363657),
+      color: Color(0xff252837),
       buttonBackgroundColor: Color(0xffc83996),
       backgroundColor: Color(0xff1d1d29),
       animationCurve: Curves.easeInOut,
       animationDuration: Duration(milliseconds: 600),
       onTap: (index) {
         setState(() {
-          _page = index;
+
         });
       },
       letIndexChange: (index) => true,
@@ -76,7 +94,7 @@ class __NavigationBarState extends State<_NavigationBar> {
   }
 }
 
-class _histories extends StatelessWidget {
+class _Histories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -85,26 +103,26 @@ class _histories extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(width: 15,),
-          _history(),
-          _history(imagen: 'assets/perf1.jpg'),
-          _history(imagen: 'assets/perf2.jpg'),
-          _history(imagen: 'assets/perf3.jpg'),
-          _history(imagen: 'assets/perf4.jpg'),
-          _history(imagen: 'assets/perf5.jpg'),
-          _history(imagen: 'assets/perf6.jpg'),
-          _history(imagen: 'assets/perf1.jpg'),
-          _history(imagen: 'assets/perf2.jpg'),
-          _history(imagen: 'assets/perf3.jpg'),
+          _History(),
+          _History(imagen: 'assets/perf1.jpg'),
+          _History(imagen: 'assets/perf2.jpg'),
+          _History(imagen: 'assets/perf3.jpg'),
+          _History(imagen: 'assets/perf4.jpg'),
+          _History(imagen: 'assets/perf5.jpg'),
+          _History(imagen: 'assets/perf6.jpg'),
+          _History(imagen: 'assets/perf1.jpg'),
+          _History(imagen: 'assets/perf2.jpg'),
+          _History(imagen: 'assets/perf3.jpg'),
         ],
       ),
     );
   }
 }
 
-class _history extends StatelessWidget {
+class _History extends StatelessWidget {
   final String imagen;
 
-  const _history({this.imagen = ''});
+  const _History({this.imagen = ''});
 
   @override
   Widget build(BuildContext context) {
